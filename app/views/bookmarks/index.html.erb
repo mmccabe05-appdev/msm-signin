@@ -1,8 +1,9 @@
 <div>
   <div>
     <h1>
-      List of all bookmarks
+      <%= User.where(:id=>session.fetch(:user_id)).at(0).first_name %>'s list of bookmarks
     </h1>
+    
   </div>
 </div>
 
