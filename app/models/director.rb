@@ -12,4 +12,5 @@
 #
 class Director < ApplicationRecord
   has_many :filmography, :class_name => "Movies"
+  validates(:name, { :presence => true })
 end
