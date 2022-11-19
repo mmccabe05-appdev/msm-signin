@@ -23,6 +23,10 @@
               Sign out
             </a>
           </li>
+             <li>
+              <a href="/bookmarks">
+              My bookmarks</a>
+          </li>
       <% else %>
                 <li>
             <a href="/user_sign_up">
@@ -43,7 +47,6 @@
           </a>
         </li>
       </ul>
-    </nav>
 
 <ul>
   <li>
@@ -78,7 +81,13 @@
       All characters
     </a>
   </li>
+
 </ul>
+
+    </nav>
+<%# if notice.present? = true %>
+<p style="color: green; border: 1px green solid"><%= notice %></p>
+<p style="color: red; border: 1px red solid"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
