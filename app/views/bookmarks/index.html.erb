@@ -16,14 +16,11 @@
     </h2>
 
     <form action="/insert_bookmark" method="post">
-        <input type="hidden" id="user_id_box" name="query_user_id">
-        <select>
-
-        <%# Movies.all do |a_movie| %>
-          <option><%#= a_movie.name %></option>
-        <%# end %>
+        <select name="query_movie_id" id="movie_id_box">
+          <% Movie.all.order(:title).each do |a_movie| %>
+            <option value="<%= a_movie.id %>"><%= a_movie.title %></option>
+          <% end %>
         </select>
-        <input type="text" id="movie_id_box" name="query_movie_id">
 
       <button>
         Bookmark this movie!
@@ -65,15 +62,15 @@
       <% @list_of_bookmarks.each do |a_bookmark| %>
       <tr>
         <td>
-          <%= a_bookmark.id %>
+          Bookmark #<%= a_bookmark.id %>
         </td>
 
         <td>
-          <%= a_bookmark.user_id %>
+          <%= a_bookmark.user.first_name %>
         </td>
 
         <td>
-          <%= a_bookmark.movie_id %>
+          <a href="movies/<%= a_bookmark.movie.id %>"><%= a_bookmark.movie.title %></a>
         </td>
 
         <td>
